@@ -23,10 +23,11 @@ void insertionSortAtBegin(vector<int> &A, int i) {
 int solve(vector<int> &A) {
     sort(A.begin(), A.end());
     int res = 0;
-    int prev = -1;
+    int prev = A[0];
     const int n = A.size();
-    for (int i = 0; i < n; i++) {
-        int e = A[i];
+    int e;
+    for (int i = 1; i < n; i++) {
+        e = A[i];
         if (e <= prev) {
             prev += 1;
             res += (prev - e);
