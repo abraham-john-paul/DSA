@@ -1,7 +1,10 @@
 // #include "SubArrayOR.hpp"
 // #include "HotelBookings.hpp"
 // #include "DuplicateRowInBinaryMatrix.hpp"
-#include "KthRowOfPascalsTriangle.hpp"
+// #include "KthRowOfPascalsTriangle.hpp"
+// #include "CircleOfMonsters.hpp"
+// #include "WhenWillAntsDie.hpp"
+#include "NonDecreasingSubArrayQueries.hpp"
 
 int main() {
     // SubArrayOR
@@ -75,5 +78,26 @@ int main() {
     // for (const int e : ans) {
     //     cout << e << " ";
     // }
+    
+    // Circle of Monsters
+    // vector<int> A = { 1,2 };
+    // vector<int> B = { 2,1 };
+    // cout << solve(A, B) << "\n";
+    
+    // When Will Ants Die
+    // int A = 9;
+    // vector<int> B = { 5 };
+    // vector<int> C = { 4 };
+    // cout << solve(A, B, C) << "\n";
+    
+    // Non Decreasing SubArray Query
+    vector<int> A = { 20, 7, 12, 3, 13, 2, 13, 18, 4, 1, 7, 13, 11, 17, 20, 8, 6, 14, 3, 2 };
+    vector<vector<int>> B = {
+        {1, 3}
+    };
+    auto ans = solve(A, B);
+    for (const int e : ans) {
+        cout << e << " ";
+    }
     return 0;
 }

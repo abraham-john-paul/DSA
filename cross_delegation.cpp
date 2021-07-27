@@ -31,3 +31,11 @@ int main() {
     d.operation2(); 
     return 0;
 }
+
+
+
+ans = 0;
+
+while (b > 0) {
+    
+}
