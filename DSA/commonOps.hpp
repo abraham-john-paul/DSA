@@ -1,3 +1,6 @@
+#ifndef COMMON_OPS
+#define COMMON_OPS
+
 void printMatrix(const vector<vector<int> > &A) {
     int r = A.size();
     if (r == 0) {
@@ -29,3 +32,4 @@ template<typename T>
 void printValue(T v, const string& delimiter = "\n") {
     cout << v << delimiter;
 }
+#endif

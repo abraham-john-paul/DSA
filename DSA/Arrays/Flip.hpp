@@ -7,7 +7,7 @@ vector<int> flip(string A) {
     const int nOnes = count(A.begin(), A.end(), '1');
     int curMaxOnes = 0;
     int maxOnes = nOnes;
-    int start;
+    int start = -1;
     pair<int, int> p = {0, -1};
 
     for (int i = 0; i < n; i++) {
@@ -16,30 +16,25 @@ vector<int> flip(string A) {
                 curMaxOnes -= 1;
             break;
             case '0':
-                if (curMaxOnes == 0) {
+                if (curMaxOnes == 0 && start == -1) {
                     start = i;
                 }
                 curMaxOnes += 1;
             break;       
         }
         if (curMaxOnes < 0) {
+            start = -1;
             curMaxOnes = 0;
         }
-
         if (maxOnes < nOnes + curMaxOnes) {
             maxOnes = nOnes + curMaxOnes;
             p = {start, i};
-        } else if (maxOnes == nOnes + curMaxOnes) {
+        } else if (maxOnes == nOnes + curMaxOnes && p.second != -1) {
             int s1 = p.first;
             int s2 = start;
-
-            for (int j = 0; j <= i; j++) {
-                if (A[i] < A[j]) {
-                    break;
-                } else if (A[i] > A[j]) {
-                    p = {start, i};
-                    break;
-                }
+            pair<int, int> p_ = {start, i};
+            if (p > p_) {
+                p = p_;
             }
         }
     }
@@ -48,17 +43,5 @@ vector<int> flip(string A) {
         return {};
     }
 
-    vector<int> ans(n);
-    for (int i = 0; i < n; i++) {
-        if (i >= p.first && i <= p.second) {
-            if (A[i] == '0') {
-                ans[i] = 1;
-            }
-        } else {
-            if (A[i] == '1') {
-                ans[i] = 1;
-            } 
-        }
-    }
-    return ans;
+    return p.second == -1 ? vector<int>() : vector<int>({p.first + 1, p.second + 1});
 }
