@@ -32,4 +32,13 @@ template<typename T>
 void printValue(T v, const string& delimiter = "\n") {
     cout << v << delimiter;
 }
+
+template<typename T>
+void printValues(initializer_list<T> v) {
+    for (const auto& e : v) {
+        cout << e << " ";
+    }
+    cout << "\n";
+}
+
 #endif
