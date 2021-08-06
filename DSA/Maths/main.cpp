@@ -11,7 +11,16 @@
 // #include "Primes/CountOfDivisors.hpp"
 // #include "Primes/Primes1toN.hpp"
 // #include "Primes/OddFibbonacci.hpp"
-#include "Primes/FactorialArray.hpp"
+// #include "Primes/FactorialArray.hpp"
+// #include "Primes/LuckyNumbers.hpp"
+// #include "Combinatorics/ComputenCrmodM.hpp"
+// #include "Combinatorics/ComputenCrmodP.hpp"
+// #include "Combinatorics/Summation.hpp"
+// #include "Combinatorics/NextPermutation.hpp"
+// #include "Combinatorics/Divis0ion.hpp"
+// #include "Combinatorics/MinXORValue.hpp"
+// #include "Combinatorics/SingleNumberIII.hpp"
+#include "Combinatorics/SingleNumberII.hpp"
 
 #include "../commonOps.hpp"
 
@@ -78,7 +87,49 @@ int main() {
     // printValue(solve(A, B));
 
     // Factorial Array
-    vector<int> A = { 2, 3, 4, 5, 6};
+    // vector<int> A = { 2, 3, 4, 5, 6};
+    // printValue(solve(A));
+
+    // Lucky Numbers
+    // int A = 8;
+    // printValue(solve(A));
+
+    // Compute nCr % M
+    // int A = 38;
+    // int B = 5;
+    // int C = 81;
+    // printValue(solve(A, B, C));
+
+    // Compute nCr % M
+    // int A = 6;
+    // int B = 2;
+    // int C = 13;
+    // printValue(solve(A, B, C));
+
+    // Summation - pending
+    // int A = 39;
+    // printValue(solve(A));
+
+    // Next Permutation
+    // vector<int> A = {1, 2, 4, 3};
+    // printArray(nextPermutation(A));
+    // printArray(A);
+
+    // Division 
+    // int A = -2147483648;
+    // int B = -10000000;
+    // printValue(solve(A, B));
+
+    // Min XOR Value
+    // vector<int> A = {0, 2, 5, 7};
+    // printValue(findMinXor(A));
+
+    // Single Number III
+    // vector<int> A = { 408, 478, 74, 624, 74, 204, 705, 624, 337, 408, 478, 204 };
+    // printArray(solve(A));
+
+    //Single Number II
+    vector<int> A = { 0, 0, 0, 1};
     printValue(solve(A));
 
     return 0;
