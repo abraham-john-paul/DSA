@@ -20,7 +20,9 @@
 // #include "Combinatorics/Divis0ion.hpp"
 // #include "Combinatorics/MinXORValue.hpp"
 // #include "Combinatorics/SingleNumberIII.hpp"
-#include "Combinatorics/SingleNumberII.hpp"
+// #include "Combinatorics/SingleNumberII.hpp"
+// #include "Combinatorics/ConsecutiveNumberSum.hpp"
+#include "BitManipulation/StrangeEquality.hpp"
 
 #include "../commonOps.hpp"
 
@@ -129,7 +131,15 @@ int main() {
     // printArray(solve(A));
 
     //Single Number II
-    vector<int> A = { 0, 0, 0, 1};
+    // vector<int> A = { 0, 0, 0, 1};
+    // printValue(solve(A));
+
+    // Consequetive Number Sum
+    // int A = 15;
+    // printValue(solve(A));
+
+    // Strange Equality
+    int A = 5;
     printValue(solve(A));
 
     return 0;

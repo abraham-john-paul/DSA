@@ -4,6 +4,7 @@
 #include <vector>
 #include <utility>
 
+
 using namespace std;
 
 int factorial(int n) {
@@ -19,12 +20,14 @@ int factorial(int n) {
 
 int findLesserCharCount(const string& A, char a, int start , int end) {
     int cnt = 0;
+    unordered_set<char> us;
     while (start < end) {
-        if (A[start++] < a) {
-            cnt++;
+        if (A[start] < a) {
+            us.insert(A[start]);
         }
+        start++;
     }
-    return cnt;
+    return us.size();
 }
 
 int findRank(string A) {

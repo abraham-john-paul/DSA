@@ -14,17 +14,26 @@ void printMatrix(const vector<vector<int> > &A) {
         cout << "\n";
     }
 }
-void printArray(const vector<int>& A) {
+
+template <typename T>
+void printArray(const vector<T>& A) {
     for (const auto e : A) {
         cout << e << " ";
     }
     cout << "\n";
 }
-
+    
 template <class T, class U>
 void printUnorderedMap(const unordered_map<T, T> um) {
     for (const auto& p : um) {
         cout << p.first << "->" << p.second << "\n";
+    }
+}
+
+template <class T>
+void printUnorderedSet(const unordered_set<T> us) {
+    for (const auto& e : us) {
+        cout << e << "\n";
     }
 }
 
