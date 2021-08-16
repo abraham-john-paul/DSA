@@ -8,7 +8,9 @@
 // #include "NoOfSquarefulArrays.hpp"
 // #include "RemoveInvalidParanthesis.hpp"
 // #include "CombinationSum.hpp"
-#include "CombinationSum2.hpp"
+// #include "CombinationSum2.hpp"
+#include "HorizontalAndVerticalSums.hpp"
+// #include "NQueens.hpp"
 
 int main() {
     // Combinations
@@ -37,8 +39,8 @@ int main() {
     // vector<int> A = {49809, 367, 33, 16, 48};
     // printValue(solve(A));
 
-    // Remove Invalid Paranthesis - to be solved
-    // string A = "()())()";
+    // Remove Invalid Paranthesis
+    // string A = "((()()((";
     // printArray(solve(A));
 
     // Combination Sum
@@ -48,10 +50,29 @@ int main() {
     // printMatrix(combinationSum(A, B));
 
     // Combination Sum 2
-    vector<int> A = {10, 1, 2, 7, 6, 1, 5};
-    int B = 8;
+    // vector<int> A = {10, 1, 2, 7, 6, 1, 5};
+    // int B = 8;
 
-    printMatrix(combinationSum(A, B));
+    // printMatrix(combinationSum(A, B));
+
+    // Horizontal And Vertical Sum
+    int A = 2;
+    vector<vector<int>> B = {
+        {1, 1, 1},
+        {1, 1, 1},
+        {1, 1, 1}
+    };
+    int C = 2;
+
+    printValue(solve(A, B, C));
+
+    // NQueens
+    // int A = 4;
+    // auto ans = solveNQueens(A);
+
+    // for (const auto& v : ans) {
+    //     printArray(v);
+    // }
 
     return 0;
 }

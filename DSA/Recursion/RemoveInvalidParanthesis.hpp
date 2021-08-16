@@ -1,38 +1,40 @@
 #include "../header.h"
 
-void generate(vector<string>& ans, string& s, int i, int max, int openCount, int closeCount) {
-    if (i == max) {
+void generate(set<string>& ans, string& s, int i, const string& A, int openCount, int closeCount) {
+    if (i == A.size()) {
         if (openCount == closeCount) {
-            ans.push_back(s);
+            if (ans.empty() || ans.begin()->size() == s.size() && *ans.begin() != s) {
+                ans.insert(s);
+            }
         }
         return;
     }
-
-    if (s[i] != '(' || s[i] != ')') {
-        s.push_back(s[i]);
-        generate(ans, s, i + 1, max, openCount, closeCount);
+    
+    if (A[i] != '(' && A[i] != ')') {
+        s.push_back(A[i]);
+        generate(ans, s, i + 1, A, openCount, closeCount);
         s.pop_back();
     } else {
-        if (s[i] == '(') {
-            s.push_back('(');
-            generate(ans, s, i + 1, max, openCount + 1, closeCount);
+        if (A[i] == '(') {
+            s.push_back(A[i]);
+            generate(ans, s, i + 1, A, openCount + 1, closeCount);
             s.pop_back();
         } else {
-            s.push_back(')');
-            if (closeCount + 1 <= openCount) {
-                generate(ans, s, i + 1, max, openCount, closeCount + 1);
+            if (closeCount < openCount) {
+                s.push_back(A[i]);
+                generate(ans, s, i + 1, A, openCount, closeCount + 1);
                 s.pop_back();
             }
         }
-        generate(ans, s, i + 1, max, openCount, closeCount);
+        generate(ans, s, i + 1, A, openCount, closeCount);
     }
 }
 
 vector<string> solve(string A) {
-    vector<string> ans;
+    set<string> ans;
     string s;
-    s.reserve(A.size());
-    generate(ans, s, 0, A.size(), 0, 0);
 
-    return ans;
+    generate(ans, s, 0, A, 0, 0);
+
+    return vector<string>(ans.begin(), ans.end());
 }
