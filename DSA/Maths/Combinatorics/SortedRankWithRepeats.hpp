@@ -1,3 +1,5 @@
+#include "../header.h"
+
 vector<long long> factorial(int A, int m) {
     vector<long long> ans;
     ans.reserve(A + 1);
