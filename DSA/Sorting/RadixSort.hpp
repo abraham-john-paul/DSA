@@ -1,7 +1,6 @@
 #include "../header.h"
 
 void radixSort(vector<int>& A) {
-    int multiplier = 10;
     int maxElem = *max_element(A.begin(), A.end());
     vector<int> buckets[10];
     int digit;
