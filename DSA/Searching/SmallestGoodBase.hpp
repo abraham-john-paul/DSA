@@ -18,15 +18,18 @@ long long validate(long long N, int lenOf1s) {
     long long start = 2;
     long long end = N - 1;
     long long mid, sum;
+
     while (start <= end) {
         mid = start + (end - start) / 2;
+        
         sum = 1;
         for (int i = 1; i < lenOf1s; i++) {
             sum += fastPower(mid, i);
         }
-        if (sum == (N)) {
+
+        if (sum == N) {
             return mid;
-        } else if (sum > (N)) {
+        } else if (sum > N) {
             end = mid - 1;
         } else {
             start = mid + 1;
