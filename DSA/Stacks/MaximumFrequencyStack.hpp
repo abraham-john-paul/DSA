@@ -3,55 +3,34 @@
 vector<int> solve(vector<vector<int> > &A) {
     const int nOps = A.size();
     vector<int> ans(nOps);
-    int i = 0;
-    unordered_set<int> found;
-    stack<pair<int, int>> st1, st2;
-    int x;
-    pair<int, int> maxFreq;
-    for(const auto& op : A) {
-        if (op.front() == 1) {
-            x = op.back();
-            if (found.find(x) == found.end()) {
-                found.insert(x);
-                st1.push({x, 1});
-            } else {
-                while (st1.top().first != x) {
-                    auto p = st1.top();
-                    st1.pop();
-                    st2.push(p);
+    int op, x;
+    
+    map<int, stack<int>> stMap;
+    unordered_map<int, int> freqMap;
+    int freq;
+
+    for (int i = 0; i < nOps; i++) {
+        op = A[i].front();
+        switch(op) {
+            case 1: {
+                x = A[i].back();
+                freqMap[x]++;
+                freq = freqMap[x];
+                stMap[freq].push(x);
+                ans[i] = -1;
+                break;
+            } 
+            case 2: {
+                auto itr = stMap.rbegin();
+                x = itr->second.top();
+                freqMap[x]--;
+                itr->second.pop();
+                if (itr->second.empty()) {
+                    stMap.erase(itr->first);
                 }
-                st1.top().second++;
-                if (st1.top().second > maxFreq.second) {
-                    maxFreq = st1.top();
-                }
-                while (!st2.empty()) {
-                    auto p = st2.top();
-                    st2.pop();
-                    st1.push(p);
-                }
-                ans[i++] = -1;
+                ans[i] = x;
+                break;
             }
-        } else {
-            auto p = st1.top();
-            st1.pop();
-            if (p.first == maxFreq.first) {
-                maxFreq.second--;
-                while (!st1.empty()) {
-                    if (st1.top().second == maxFreq.second) {
-                        maxFreq.first = st1.top().first;
-                    } else if (st1.top().second > maxFreq.second) {
-                        maxFreq = st1.top();
-                    }
-                    st2.push(st1.top());
-                    st1.pop();
-                }
-                while (!st2.empty()) {
-                    auto p = st2.top();
-                    st2.pop();
-                    st1.push(p);
-                }
-            }
-            ans[i++] = maxFreq.first;
         }
     }
 
