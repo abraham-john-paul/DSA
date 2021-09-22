@@ -18,8 +18,9 @@ struct TreeNode {
  
  
 vector<int> Solution::inorderTraversal(TreeNode* A) {
-    stack<TreeNode*> stk;
     vector<int> ans;
+    // inorder(ans, A);
+    stack<TreeNode*> stk;
     auto* node = A;
     while (!stk.empty() || A) {
         if (A) {
@@ -32,7 +33,6 @@ vector<int> Solution::inorderTraversal(TreeNode* A) {
             A = node->right;
         }
     }
-    // inorder(ans, A);
     
     return ans;
 }
