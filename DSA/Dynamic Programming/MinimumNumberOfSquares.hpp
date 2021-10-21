@@ -27,7 +27,7 @@ int nWays(int n, vector<int>& dp) {
 //     return dp[n];
 // }
 
-int Solution::countMinSquares(int A) {
+int countMinSquares(int A) {
     // Bottom Up Approach
     vector<int> dp(A + 1);
     return nWays(A, dp);
