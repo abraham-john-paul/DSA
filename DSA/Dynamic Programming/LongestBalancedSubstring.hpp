@@ -23,7 +23,7 @@ void solve(const string& A, vector<int>& dp) {
     }
 }
 
-int Solution::LBSlength(const string A) {
+int LBSlength(const string A) {
     open.insert({'(', ')'});
     open.insert({'[', ']'});
     open.insert({'{', '}'});
