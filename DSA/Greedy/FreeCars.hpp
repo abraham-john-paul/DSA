@@ -4,7 +4,7 @@
 #define ll long long
 #define pii pair<int, int>
 
-int Solution::solve(vector<int> &A, vector<int> &B) {    
+int solve(vector<int> &A, vector<int> &B) {    
     priority_queue<int, vector<int>, greater<int>> pq;
     int n = A.size();
     vector<pii> cars;
