@@ -4,34 +4,46 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-
-TreeNode* prevNode = nullptr;
-void traversal(TreeNode* root, vector<int>& ans) {
-    if (!root) {
-        return;
-    }
-    traversal(root->left, ans);
-    if (prevNode && prevNode->val > root->val && ans.size() == 0) {
-        ans.push_back(prevNode->val);
-    }
-    if (prevNode && prevNode->val > root->val && ans.size() > 0) {
-        if (ans.size() < 2) {
-            ans.push_back(root->val);
-        } else {
-            ans.back() = root->val;
+class Solution {
+    TreeNode* prev = nullptr;
+    TreeNode* first = nullptr;
+    TreeNode* last = nullptr;
+    
+public:
+    void inOrder(TreeNode* root) {
+        if (!root) return;
+        
+        inOrder(root->left);
+        
+        if (prev && prev->val > root->val) {
+            if (!first) {
+                first = prev;
+                last = root;
+            } else {
+                last = root;
+            }
         }
+        
+        prev = root;
+        
+        inOrder(root->right);
     }
-    prevNode = root;
-    traversal(root->right, ans);
-}
-
-vector<int> Solution::recoverTree(TreeNode* A) {
-    vector<int> ans;
-    prevNode = nullptr;
-    traversal(A, ans);
-    sort(ans.begin(), ans.end());
-    return ans;
-}
+    
+    
+    void recoverTree(TreeNode* root) {
+        if (!root) return;
+        
+        prev = nullptr;
+        first = nullptr;
+        last = nullptr;
+        
+        inOrder(root);
+        
+        swap(first->val, last->val);
+    }
+};
