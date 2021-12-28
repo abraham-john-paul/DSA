@@ -43,7 +43,7 @@ void deleteTrie(Node* root) {
         return;
     }
     for (auto& child : root->children) {
-        deleteTree(child.second);
+        deleteTrie(child.second);   
     }
     delete root;
 }
