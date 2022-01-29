@@ -23,9 +23,8 @@ string solve(string A) {
                         start = min(start, i);
                     }
                 }
-            } else {
-                dp[i][j] = false;
             }
+            
             i++;
             j++;
         }
