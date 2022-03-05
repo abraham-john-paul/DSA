@@ -2,3 +2,10 @@ DSA/.vscode/c_cpp_properties.json
 DSA/.vscode/settings.json
 CodeChef/SeptemberCookOff/AdjacencyHatred.cpp
 CodeChef/SeptemberCookOff/.vscode/settings.json
+LLD/Multithreaded Message Queue/handler/TopicHandler.hpp
+DSA/.vscode/extensions.json
+LLD/Multithreaded Message Queue/.vscode/settings.json
+
+LLD/Multithreaded Message Queue/public_interface/Queue.hpp
+
+LLD/Multithreaded Message Queue/model/Topic.hpp

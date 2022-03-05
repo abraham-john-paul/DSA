@@ -1,0 +1,120 @@
+/*
+List: [‘cat’, ‘baby’, ‘teeth’]
+
+String: ‘taihc’
+O/p: cat
+
+String: ‘bauhy’
+O/p: null
+
+String: ‘tthyyee’
+O/p: teeth
+
+*/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool findWordshelper(const unordered_map<char, int>& freqMap, const string& s) {
+    unordered_map<char, int> curFreqMap;
+    for (char c : s) {
+        auto itr = freqMap.find(c);
+        curFreqMap[c]++;
+        if (itr == freqMap.end() || itr->second < curFreqMap[c]) return false;
+    }
+    return true;
+}
+
+vector<string> findWords(vector<string>& list, string str){
+    vector<string> ans;
+
+    unordered_map<char, int> freqMapStr;
+    for (char c : str) {
+        freqMapStr[c]++;
+    }
+    
+    for (const auto& s : list) {
+        if (findWordshelper(freqMapStr, s)) {
+            ans.push_back(s);
+        }
+    }
+    return ans;
+}
+
+using namespace std;
+int main(){
+  vector<string> list ={"cat", "cath", "teeth"};
+  string key = "taihc";
+  vector<string> ans = findWords(list, key);
+  for (const auto& word : ans) {
+      cout << word << " ";
+  }
+  return 0;
+}
+
+
+
+
+///////////////////////////////////////
+
+
+/*
+Discount Coupons:
+
+Blank code is valid
+If you add same char on both sides of existing discount code, it is valid
+If you concatenate 2 valid discount codes, they are valid.
+
+Eg:
+Valid:
+
+“”
+“aa”
+“bb”
+“aabb”
+“bbxaax”
+“xaaxaabb”
+"xaaxaabbyy"
+
+Invalid:
+“A”
+“xaay”
+“xaa”
+
+
+Output:
+Array of int: 0s and 1s
+
+
+*/
+aaaaaaaaaaaaaaaaaaaabcd
+.....................                x
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> isValid(vector<string>& codes){
+   vector<int> ans(codes.size());
+   int i = 0;
+   for (const auto& code : codes) {
+        stack<char> stk;
+       for (char c : code) {
+           if (!stk.empty() && stk.top() == c) {
+               stk.pop();
+               continue;
+           }
+           stk.push(c);
+       }
+       ans[i++] = stk.empty() ? 1 : 0;
+   }
+   return ans;
+}
+
+int main(){
+  vector<string> list ={ "xaay", "xyxy", ""};
+  vector<int> ans = isValid(list);
+  for (const auto& word : ans) {
+      cout << word << " ";
+  }
+  return 0;
+}
